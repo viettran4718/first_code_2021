@@ -1,1 +1,16 @@
-<p>random works!</p>
+<div class="card">
+  <input [(ngModel)]="numberRd" pInputText>
+  <button pButton type="button" label="Lấy số cặp chơi" (click)="getRandomArr()"></button>
+
+  <div *ngFor="let item of arrNum">
+    <span> {{item}} </span>
+  </div>
+
+  <span> Số lượt còn lại {{arrNum.length || 0}}</span>
+  <button pButton type="button" label="Lấy số" (click)="getNumber()"></button>
+
+  <div *ngFor="let item of selectedArrNum">
+    <span> {{item}} </span>
+  </div>
+
+</div>

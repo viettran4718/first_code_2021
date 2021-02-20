@@ -8,6 +8,9 @@ import {QuoteComponent} from './quote/quote.component';
 import {LuckyMoneyComponent} from './lucky-money/lucky-money.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {ExploreComponent} from './explore/explore.component';
+import {RandomComponent} from './random/random.component';
+import {FormsModule} from '@angular/forms';
+import {PrimengModule} from './shared/primeng/primeng.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,14 @@ import {ExploreComponent} from './explore/explore.component';
     CountDownComponent,
     QuoteComponent,
     LuckyMoneyComponent,
-    ExploreComponent
+    ExploreComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InputTextModule,
+    FormsModule,
+    PrimengModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

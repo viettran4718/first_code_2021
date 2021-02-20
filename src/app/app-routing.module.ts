@@ -5,11 +5,13 @@ import {CountDownComponent} from './count-down/count-down.component';
 import {LuckyMoneyComponent} from './lucky-money/lucky-money.component';
 import {LuckyMoneyGuard} from './lucky-money.guard';
 import {ExploreComponent} from './explore/explore.component';
+import {RandomComponent} from './random/random.component';
 
 const routes: Routes = [
   {path: '', component: CountDownComponent},
   {path: 'quote', component: QuoteComponent},
   {path: 'explore', component: ExploreComponent},
+  {path: 'random', component: RandomComponent},
   {path: 'lucky-money', component: LuckyMoneyComponent, canActivate: [LuckyMoneyGuard]},
 ];
 
