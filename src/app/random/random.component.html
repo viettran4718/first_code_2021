@@ -1,16 +1,39 @@
 <div class="card">
-  <input [(ngModel)]="numberRd" pInputText>
-  <button pButton type="button" label="Lấy số cặp chơi" (click)="getRandomArr()"></button>
+  <div class="p-grid">
+    <div class="p-col-12 p-md-4 ">
+      <div class=" p-d-flex p-flex-column">
+        <div class=" p-d-flex p-jc-end">
+          <input [(ngModel)]="numberRd" pInputText style="width: 60%">
+          <button (click)="getRandomArr()" label="Lấy số cặp chơi" pButton style="width: 40%" type="button"></button>
+        </div>
+        <div *ngFor="let item of arrNum">
+          <span> {{item}} </span>
+        </div>
+      </div>
+    </div>
 
-  <div *ngFor="let item of arrNum">
-    <span> {{item}} </span>
-  </div>
+    <div class="p-col-12 p-md-4 ">
+      <div class="p-d-flex p-flex-column">
+        <div  class="p-d-flex p-jc-end p-flex-row p-ai-center">
+          <span style="width: 60%"> Số lượt còn lại {{arrNum.length || 0}}</span>
+          <button style="width: 40%" (click)="getNumber()" label="Lấy số" pButton type="button"></button>
+        </div>
 
-  <span> Số lượt còn lại {{arrNum.length || 0}}</span>
-  <button pButton type="button" label="Lấy số" (click)="getNumber()"></button>
+        <div *ngFor="let item of selectedArrNum">
+          <span> {{item}} </span>
+        </div>
+      </div>
+    </div>
 
-  <div *ngFor="let item of selectedArrNum">
-    <span> {{item}} </span>
+    <div class="p-col-12 p-md-4">
+      <div class="p-d-flex p-flex-column">
+        <div class="p-d-flex p-jc-end">
+          <button (click)="getCouple()" label="Lấy cặp đấu" pButton style="width: 40%" type="button"></button>
+        </div>
+        <div style="white-space: pre-line;"> {{resultCouple}}
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>

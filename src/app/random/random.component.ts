@@ -13,6 +13,8 @@ export class RandomComponent implements OnInit {
 
   selectedArrNum: number[] = [];
 
+  resultCouple = '';
+
   constructor() {
   }
 
@@ -20,6 +22,14 @@ export class RandomComponent implements OnInit {
   }
 
   getRandomArr(): void {
+    if (this.arrNum.length === 0) {
+      this.initData();
+    } else if (confirm('Bạn muốn reset lượt chọn?')) {
+      this.initData();
+    }
+  }
+
+  initData(): void {
     this.arrNum = [];
     this.selectedArrNum = [];
     for (let i = 1; i <= this.numberRd; i++) {
@@ -46,6 +56,29 @@ export class RandomComponent implements OnInit {
 
   getRndIntegerFromZero(numberInt): number {
     return Math.floor(Math.random() * numberInt);
+  }
+
+  getCouple(): void {
+
+    const arrCouple: number[] = [];
+
+    for (let i = 1; i <= this.numberRd; i++) {
+      arrCouple.push(i);
+    }
+
+    const selectedArrCouple: number[] = [];
+    while (arrCouple.length !== 0) {
+      const selectedIndex = this.getRndIntegerFromZero(arrCouple.length);
+      const selectNumber = arrCouple[selectedIndex];
+      arrCouple.splice(selectedIndex, 1);
+      selectedArrCouple.push(selectNumber);
+    }
+
+    this.resultCouple = '';
+
+    for (let i = 0; i < selectedArrCouple.length / 2; i++) {
+      this.resultCouple += selectedArrCouple[2 * i] + '     ><     ' + selectedArrCouple[2 * i + 1] + '\n';
+    }
   }
 
 }
